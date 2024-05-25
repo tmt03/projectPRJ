@@ -8,7 +8,9 @@ public class DBContext {
     protected Connection connection;
     public DBContext()
     {
-        try {
+        Properties prop = new Properties();
+        try (InputStream input = new FileInputStream("config.properties")) {
+            prop.load(input);
             String user = "sa";
             String pass = prop.getProperty("db.password");
             String url = "jdbc:sqlserver://LAPTOP-UACSD3DT:1433;databaseName=QLNS";
