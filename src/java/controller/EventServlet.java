@@ -69,7 +69,7 @@ public class EventServlet extends HttpServlet {
             MemberDAO mdao = new MemberDAO();
             List<Events> e = null;
             List<Members> m = null;
-            HttpSession session = request.getSession();
+            
 
             if (keyword1 != null && !keyword1.isEmpty()) {
                 // Nếu có từ khóa tìm kiếm, thực hiện truy vấn với từ khóa
