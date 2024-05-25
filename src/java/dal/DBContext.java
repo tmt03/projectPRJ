@@ -10,7 +10,7 @@ public class DBContext {
     {
         try {
             String user = "sa";
-            String pass = "123";
+            String pass = prop.getProperty("db.password");
             String url = "jdbc:sqlserver://LAPTOP-UACSD3DT:1433;databaseName=QLNS";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url, user, pass);
