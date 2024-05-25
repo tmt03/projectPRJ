@@ -27,18 +27,20 @@
         });
     });
 
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
+   function validate(input) {
+    if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+        const emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        if (!emailPattern.test($(input).val().trim())) {
+            return false;
         }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
+    } else {
+        if ($(input).val().trim() == '') {
+            return false;
         }
     }
+    return true;
+}
+
 
     function showValidate(input) {
         var thisAlert = $(input).parent();
