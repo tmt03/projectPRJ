@@ -120,6 +120,11 @@ public class EventServlet extends HttpServlet {
                 response.sendRedirect("errorPage.jsp"); // Hoặc một cách xử lý khác
             }
         } catch (Exception e) {
+            // Log the exception for troubleshooting
+        logger.error("An error occurred in doPost method:", e);
+        // Forward to error page or display an error message
+        request.setAttribute("errorMessage", "An error occurred while processing your request.");
+        request.getRequestDispatcher("errorPage.jsp").forward(request, response);
         }
 
     }
