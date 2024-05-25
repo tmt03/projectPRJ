@@ -10,12 +10,13 @@
     $('.validate-form').on('submit',function(){
         var check = true;
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
+        for (const item of input) {
+    if (validate(item) == false) {
+        showValidate(item);
+        check = false;
+    }
+}
+
 
         return check;
     });
